@@ -1,59 +1,40 @@
-# @lxfriday/smooth-scroll-to
+# @lxfriday/get-object-value
 
-javascript scroll for anywhere
+get object inner value
 
 ## install
 
 ```bash
-npm i @lxfriday/smooth-scroll-to -S
+npm i @lxfriday/get-object-value -S
 # or
-yarn add @lxfriday/smooth-scroll-to
+yarn add @lxfriday/get-object-value
 ```
 
 ## params
 `smoothScrollTo(ref, pos[, rate])`
 
-- `ref` {`HTMLElement`} `required`, the component you want to scroll
-- `pos` {`number`} `required`, the component you want to scroll
-- `rate` {`numbger`} scroll speed, bigger means faster
+- `obj` {`object`} `required`, target object
+- `keys` {`array`} `required`, key array, like object.a.b.c.d.e => ['a', 'b', 'c', 'd', 'e']
+- `defaultRet` {`any`} if not found or error, will return defaultRet
 
 ## usage
-// use in react
 
 ```jsx harmony
-import React, { Component } from 'react';
-import smoothScrollTo from '@lxfriday/smooth-scroll-to';
-
-class Scroll extends Component {
-  handleScroll = () => {
-    smoothScrollTo(this.scroll, 1000)
-  }
-  
-  render() {
-    return (
-      <div ref={r => (this.scroll = r)} style={{ height: 700 }}>
-        <button onClick={this.handleScroll}>scroll go</button>
-        <div style={{ height: 5000 }}>
-          <div style={{ height: 300, backgroundColor: 'red' }} />
-          <div style={{ height: 300, backgroundColor: 'green' }} />
-          <div style={{ height: 300, backgroundColor: 'yellow' }} />
-          <div style={{ height: 300, backgroundColor: 'red' }} />
-          <div style={{ height: 300, backgroundColor: 'green' }} />
-          <div style={{ height: 300, backgroundColor: 'yellow' }} />
-          <div style={{ height: 300, backgroundColor: 'red' }} />
-          <div style={{ height: 300, backgroundColor: 'green' }} />
-          <div style={{ height: 300, backgroundColor: 'yellow' }} />
-          <div style={{ height: 300, backgroundColor: 'red' }} />
-          <div style={{ height: 300, backgroundColor: 'green' }} />
-          <div style={{ height: 300, backgroundColor: 'yellow' }} />
-          <div style={{ height: 300, backgroundColor: 'red' }} />
-          <div style={{ height: 300, backgroundColor: 'green' }} />
-          <div style={{ height: 300, backgroundColor: 'yellow' }} />
-        </div>
-      </div>
-    )
-  }
-}
+const obj = {
+      a: {
+        b: {
+          c: {
+            d: {
+              e: 'abcde',
+            },
+          },
+        },
+      },
+    }
+// not found
+console.log('result => ', secureGetValue(obj, ['a', 'b', 'c', 'd', 'e', 'f'], 'not found'))
+// abcde
+console.log('result => ', secureGetValue(obj, ['a', 'b', 'c', 'd', 'e'], 'not found'))
 ```
 
 
