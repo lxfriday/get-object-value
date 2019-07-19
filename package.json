@@ -1,6 +1,6 @@
 {
   "name": "@lxfriday/get-object-value",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "get object inner value",
   "main": "src/index.js",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/lxfriday/get-object-value.git"
   },
   "keywords": [
-    "scroll"
+    "object-inner-value"
   ],
   "author": "lxfriday",
   "license": "MIT",
